@@ -4,6 +4,8 @@ import styled from "styled-components";
 const StyledForm = styled.form`
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   margin-bottom: 2rem;
 `;
 
@@ -11,10 +13,9 @@ const StyledInput = styled.input`
   font-size: 1.5rem;
   padding: 2rem 2rem;
   border: none;
-  width: 30vw;
-  display: block;
+  width: 100%;
   color: #111;
-  border-radius: 2rem 0 0 2rem;
+  border-radius: 1rem 0 0 1rem;
 `;
 
 const StyledButton = styled.button`
@@ -24,7 +25,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   background: #c3ff1e;
   border: none;
-  border-radius: 0 2rem 2rem 0;
+  border-radius: 0 1rem 1rem 0;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;

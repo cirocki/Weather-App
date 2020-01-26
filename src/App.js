@@ -4,6 +4,7 @@ import Form from "./components/Form";
 import Results from "./components/Results";
 
 import styled from "styled-components";
+import Header from "./components/Header";
 
 const StyledWrapper = styled.main`
   color: #fff;
@@ -21,18 +22,16 @@ const StyledWrapper = styled.main`
 
 const StyledContainer = styled.div`
   text-align: center;
-`;
-
-const StyledTitle = styled.h1`
-  font-size: 3rem;
-  padding: 2rem;
+  max-width: 48rem;
+  margin: 0 auto;
 `;
 
 function App() {
   // APP STATE
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({
-    temp: "-",
+    place: "",
+    temp: "",
     humidity: "-",
     pressure: "-",
     wind: "-"
@@ -59,11 +58,13 @@ function App() {
       })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         setWeather(prev => ({
-          temp: data.main.temp,
+          place: `${data.name}, ${data.sys.country}`,
+          temp: Math.round(data.main.temp),
           humidity: data.main.humidity,
           pressure: data.main.pressure,
-          wind: data.wind.speed
+          wind: data.wind.speed.toPrecision(2)
         }));
       })
       .catch(error => {
@@ -74,13 +75,13 @@ function App() {
   return (
     <StyledWrapper>
       <StyledContainer>
-        <StyledTitle>Weather App</StyledTitle>
+        <Header />
         <Form
           handleCitySubmit={handleCitySubmit}
           handleCityChange={handleCityChange}
           city={city}
         />
-        <Results weather={weather} city={city} />
+        <Results weather={weather} />
       </StyledContainer>
     </StyledWrapper>
   );
