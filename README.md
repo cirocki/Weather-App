@@ -10,7 +10,7 @@ In this simple React App You can check weather in Your city. I fetch data from O
 
 #
 
-![Website screen](https://raw.githubusercontent.com/cirocki/Barbershop-Landing-Page/master/src/img/Sweeney%20Todd%20Barber%20Website.jpg)
+![Website screen](https://raw.githubusercontent.com/cirocki/Weather-App/master/src/images/weatherappscreen.jpg)
 
 ## More
 
