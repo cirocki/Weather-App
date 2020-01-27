@@ -26,21 +26,21 @@ const StyledItem = styled.li`
 
 const StyledName = styled.p`
   font-size: 1.5rem;
+  font-weight: 500;
   text-align: left;
   text-transform: uppercase;
-  font-weight: 500;
   letter-spacing: 2px;
 
-  @media (max-width: 379px) {
+  @media (max-width: 374px) {
     font-size: 1rem;
   }
 `;
 
 const StyledData = styled.p`
   font-size: 1.5rem;
-  text-align: right;
   font-weight: 600;
-  @media (max-width: 379px) {
+  text-align: right;
+  @media (max-width: 374px) {
     font-size: 1rem;
   }
 `;
@@ -67,7 +67,7 @@ const StyledCity = styled.h2`
 `;
 const StyledTemp = styled.p`
   font-size: 5rem;
-  font-weight: 600;
+  font-weight: 700;
 `;
 
 export default function Results({ weather }) {
@@ -81,20 +81,22 @@ export default function Results({ weather }) {
         </StyledMainResult>
 
         <StyledOtherResults>
-          <StyledItem>
-            <StyledName>Wind</StyledName>
-            <StyledData>{wind} m/s</StyledData>
-          </StyledItem>
+          <ul>
+            <StyledItem>
+              <StyledName>Wind</StyledName>
+              <StyledData>{wind} m/s</StyledData>
+            </StyledItem>
 
-          <StyledItem>
-            <StyledName>Pressure</StyledName>
-            <StyledData>{pressure} hPa</StyledData>
-          </StyledItem>
+            <StyledItem>
+              <StyledName>Pressure</StyledName>
+              <StyledData>{pressure} hPa</StyledData>
+            </StyledItem>
 
-          <StyledItem>
-            <StyledName>Humidity</StyledName>
-            <StyledData>{humidity} %</StyledData>
-          </StyledItem>
+            <StyledItem>
+              <StyledName>Humidity</StyledName>
+              <StyledData>{humidity} %</StyledData>
+            </StyledItem>
+          </ul>
         </StyledOtherResults>
       </StyledGrid>
     </StyledWrapper>

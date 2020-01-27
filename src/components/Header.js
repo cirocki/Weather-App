@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
   padding-top: 2rem;
   padding-bottom: 4rem;
   @media (max-width: 599px) {

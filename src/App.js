@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "./App.css";
+import styled from "styled-components";
+
 import image from "./images/beach.jpg";
+
 import Form from "./components/Form";
 import Results from "./components/Results";
-
-import styled from "styled-components";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const StyledWrapper = styled.main`
-  color: #fff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,12 +17,17 @@ const StyledWrapper = styled.main`
   background-image: url(${image});
   background-size: cover;
   background-position: left center;
+  color: #fff;
 `;
 
 const StyledContainer = styled.div`
-  text-align: center;
   max-width: 48rem;
   margin: 0 auto;
+  text-align: center;
+`;
+
+const StyledErrorDiv = styled.div`
+  padding: 1rem;
 `;
 
 function App() {
@@ -35,6 +40,7 @@ function App() {
     pressure: "",
     wind: ""
   });
+  const [error, setError] = useState("");
 
   // API VARIABLES
   const apiKey = "17a58d62db18d4635698028c2b6fe349";
@@ -52,12 +58,14 @@ function App() {
         if (res.ok) {
           return res;
         } else {
+          setError(
+            "Something went wrong. Check your city spelling and try again."
+          );
           throw Error("Something went wrong.");
         }
       })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         setWeather(prev => ({
           place: `${data.name}, ${data.sys.country}`,
           temp: Math.round(data.main.temp),
@@ -65,6 +73,7 @@ function App() {
           pressure: data.main.pressure,
           wind: data.wind.speed.toPrecision(2)
         }));
+        setError("");
       })
       .catch(error => {
         console.log("Error, " + error.message);
@@ -80,8 +89,11 @@ function App() {
           handleCityChange={handleCityChange}
           city={city}
         />
-        {weather.temp ? <Results weather={weather} /> : ""}
-        {/* <Results weather={weather} /> */}
+        {weather.temp && !error ? (
+          <Results weather={weather} />
+        ) : (
+          <StyledErrorDiv>{error}</StyledErrorDiv>
+        )}
         <Footer />
       </StyledContainer>
     </StyledWrapper>
