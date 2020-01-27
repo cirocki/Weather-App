@@ -43,7 +43,7 @@ function App() {
   const [error, setError] = useState("");
 
   // API VARIABLES
-  const apiKey = "17a58d62db18d4635698028c2b6fe349";
+  const apiKey = "your-api-key-goes-here";
   const apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   const handleCityChange = e => {
