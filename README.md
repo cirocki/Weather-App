@@ -2,11 +2,11 @@
 
 ## Website Live
 
-https://cirocki.github.io/Barbershop-Landing-Page/
+https://weatherapp-309f2.firebaseapp.com/
 
 ## About project
 
-In this simple React App You can check weather in Your city. I fetch data from OpenWeatherAPI. I also used styled-components to make this app little bit more aesthetic.
+In this simple React App You can check weather in Your city. I fetch data from OpenWeatherAPI. I also used react state hook and styled-components to make this app little bit more aesthetic.
 
 #
 
