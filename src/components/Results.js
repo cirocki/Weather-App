@@ -6,42 +6,51 @@ const StyledWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 6rem;
 `;
 
 const StyledGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-gap: 1rem;
+  grid-template-columns: minmax(300px, 2fr) minmax(400px, 3fr);
+  @media (max-width: 819px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const StyledItem = styled.li`
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 1rem;
 `;
 
-const StyledParagraph = styled.p`
+const StyledName = styled.p`
   font-size: 1.5rem;
+  text-align: left;
+  text-transform: uppercase;
+`;
+
+const StyledData = styled.p`
+  font-size: 1.5rem;
+  text-align: right;
 `;
 
 const StyledMainResult = styled.div`
   display: flex;
-  width: 300px;
-  height: 300px;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid #fff;
+  padding: 2rem;
 `;
 const StyledOtherResults = styled.div`
-  max-width: 700px;
-  border: 2px solid #fff;
-  padding: 0 4rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 `;
 const StyledCity = styled.h2`
-  font-size: 1rem;
+  font-size: 1.5rem;
 `;
-
 const StyledTemp = styled.p`
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 600;
 `;
 
@@ -56,22 +65,20 @@ export default function Results({ weather }) {
         </StyledMainResult>
 
         <StyledOtherResults>
-          <ul>
-            <StyledItem>
-              <StyledParagraph>Wind:</StyledParagraph>
-              <StyledParagraph>{wind} m/s</StyledParagraph>
-            </StyledItem>
+          <StyledItem>
+            <StyledName>Wind:</StyledName>
+            <StyledData>{wind} m/s</StyledData>
+          </StyledItem>
 
-            <StyledItem>
-              <StyledParagraph>Pressure:</StyledParagraph>
-              <StyledParagraph>{pressure} hPa</StyledParagraph>
-            </StyledItem>
+          <StyledItem>
+            <StyledName>Pressure:</StyledName>
+            <StyledData>{pressure} hPa</StyledData>
+          </StyledItem>
 
-            <StyledItem>
-              <StyledParagraph>Humidity:</StyledParagraph>
-              <StyledParagraph>{humidity} %</StyledParagraph>
-            </StyledItem>
-          </ul>
+          <StyledItem>
+            <StyledName>Humidity:</StyledName>
+            <StyledData>{humidity} %</StyledData>
+          </StyledItem>
         </StyledOtherResults>
       </StyledGrid>
     </StyledWrapper>

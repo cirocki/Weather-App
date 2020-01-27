@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 import "./App.css";
+import image from "./images/beach.jpg";
 import Form from "./components/Form";
 import Results from "./components/Results";
 
 import styled from "styled-components";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const StyledWrapper = styled.main`
   color: #fff;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: radial-gradient(
-    circle 648px at center,
-    #16d9e3 0%,
-    #30c7ec 47%,
-    #46aef7 100%
-  );
+  background-image: url(${image});
 `;
 
 const StyledContainer = styled.div`
@@ -32,9 +29,9 @@ function App() {
   const [weather, setWeather] = useState({
     place: "",
     temp: "",
-    humidity: "-",
-    pressure: "-",
-    wind: "-"
+    humidity: "",
+    pressure: "",
+    wind: ""
   });
 
   // API VARIABLES
@@ -82,6 +79,7 @@ function App() {
           city={city}
         />
         <Results weather={weather} />
+        <Footer />
       </StyledContainer>
     </StyledWrapper>
   );

@@ -3,38 +3,42 @@ import styled from "styled-components";
 
 const StyledForm = styled.form`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  padding: 0 1rem;
   margin-bottom: 2rem;
 `;
 
 const StyledInput = styled.input`
-  font-size: 1.5rem;
-  padding: 2rem 2rem;
-  border: none;
   width: 100%;
-  color: #111;
+  padding: 1.5rem;
+  color: #222;
+  font-size: 1.5rem;
+  border: none;
   border-radius: 1rem 0 0 1rem;
+  @media (max-width: 519px) {
+    padding: 1rem;
+    font-size: 1rem;
+  }
 `;
 
 const StyledButton = styled.button`
-  font-size: 1.5rem;
+  padding: 1.5rem 3rem;
+  background-image: linear-gradient(to top, #affd04 0%, #f8ff12 100%);
+  color: #436407;
+  font-size: 1.25rem;
   font-weight: 600;
-  padding: 2rem 3rem;
-  cursor: pointer;
-  background: #c3ff1e;
-  border: none;
-  border-radius: 0 1rem 1rem 0;
-  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #111;
+  border: none;
+  border-radius: 0 1rem 1rem 0;
+  cursor: pointer;
 
-  &:hover {
-    box-shadow: inset 7px 7px 15px rgba(66, 66, 66, 0.15),
-      inset -7px -7px 20px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
-    color: #676767;
+  @media (max-width: 519px) {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  @media (max-width: 359px) {
+    padding: 1rem;
+    letter-spacing: 1px;
   }
 `;
 
@@ -48,7 +52,7 @@ export default function Form({ handleCitySubmit, handleCityChange, city }) {
           placeholder="Your city"
           onChange={handleCityChange}
         />
-        <StyledButton onClick={handleCitySubmit}>Find</StyledButton>
+        <StyledButton onClick={handleCitySubmit}>Check</StyledButton>
       </StyledForm>
     </div>
   );
