@@ -4,9 +4,14 @@ import styled from "styled-components";
 const StyledInfo = styled.a`
   color: #fff;
   text-decoration: none;
+  font-size: 1.125rem;
+  opacity: 0.8;
+  @media (max-width: 376px) {
+    font-size: 1rem;
+  }
 `;
 const StyledFooter = styled.footer`
-  padding: 2rem;
+  padding: 2rem 0;
 `;
 
 export default function Footer() {
@@ -18,7 +23,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          www.cirocki.pl
+          Designed & Built by Marcin Cirocki
         </StyledInfo>
       </StyledFooter>
     </div>

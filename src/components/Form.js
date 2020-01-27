@@ -10,7 +10,7 @@ const StyledForm = styled.form`
 const StyledInput = styled.input`
   width: 100%;
   padding: 1.5rem;
-  color: #222;
+  color: #4da7e5;
   font-size: 1.5rem;
   border: none;
   border-radius: 1rem 0 0 1rem;

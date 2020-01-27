@@ -28,11 +28,21 @@ const StyledName = styled.p`
   font-size: 1.5rem;
   text-align: left;
   text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 2px;
+
+  @media (max-width: 379px) {
+    font-size: 1rem;
+  }
 `;
 
 const StyledData = styled.p`
   font-size: 1.5rem;
   text-align: right;
+  font-weight: 600;
+  @media (max-width: 379px) {
+    font-size: 1rem;
+  }
 `;
 
 const StyledMainResult = styled.div`
@@ -40,11 +50,17 @@ const StyledMainResult = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
+  @media (max-width: 379px) {
+    padding: 1rem;
+  }
 `;
 const StyledOtherResults = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2rem;
+  @media (max-width: 379px) {
+    padding: 0;
+  }
 `;
 const StyledCity = styled.h2`
   font-size: 1.5rem;
@@ -66,17 +82,17 @@ export default function Results({ weather }) {
 
         <StyledOtherResults>
           <StyledItem>
-            <StyledName>Wind:</StyledName>
+            <StyledName>Wind</StyledName>
             <StyledData>{wind} m/s</StyledData>
           </StyledItem>
 
           <StyledItem>
-            <StyledName>Pressure:</StyledName>
+            <StyledName>Pressure</StyledName>
             <StyledData>{pressure} hPa</StyledData>
           </StyledItem>
 
           <StyledItem>
-            <StyledName>Humidity:</StyledName>
+            <StyledName>Humidity</StyledName>
             <StyledData>{humidity} %</StyledData>
           </StyledItem>
         </StyledOtherResults>

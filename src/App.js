@@ -15,6 +15,8 @@ const StyledWrapper = styled.main`
   flex-direction: column;
   justify-content: center;
   background-image: url(${image});
+  background-size: cover;
+  background-position: left center;
 `;
 
 const StyledContainer = styled.div`
@@ -78,7 +80,8 @@ function App() {
           handleCityChange={handleCityChange}
           city={city}
         />
-        <Results weather={weather} />
+        {weather.temp ? <Results weather={weather} /> : ""}
+        {/* <Results weather={weather} /> */}
         <Footer />
       </StyledContainer>
     </StyledWrapper>
